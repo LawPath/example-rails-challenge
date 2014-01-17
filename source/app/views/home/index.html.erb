@@ -1,0 +1,56 @@
+<h1>Failed Charges</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Amount</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @failed_charges.each do |failed_charge| %>
+      <tr class="failed">
+        <td><%= failed_charge.customer.complete_name %>
+        <td><%= number_to_currency(failed_charge.amount) %></td>
+        <td><%= failed_charge.created.strftime('%m/%d/%Y') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<h1>Disputed Charges</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Amount</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @disputed_charges.each do |disputed_charge| %>
+      <tr class="disputed">
+        <td><%= disputed_charge.customer.complete_name %>
+        <td><%= number_to_currency(disputed_charge.amount) %></td>
+        <td><%= disputed_charge.created.strftime('%m/%d/%Y') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>Successful Charges</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @successful_charges.each do |successful_charge| %>
+      <tr>
+        <td><%= number_to_currency(successful_charge.amount) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
