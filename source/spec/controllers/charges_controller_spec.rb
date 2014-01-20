@@ -33,7 +33,6 @@ describe ChargesController do
   describe "GET index" do
     it "assigns all charges as @charges" do
       charge = Charge.create! valid_attributes
-      Charge.stub(:all) { [charge] }
       get :index, {}, valid_session
       expect(assigns(:charges)).to eq([charge])
     end

@@ -33,7 +33,6 @@ describe CustomersController do
   describe "GET index" do
     it "assigns all customers as @customers" do
       customer = Customer.create! valid_attributes
-      Customer.stub(:all) { [customer] }
       get :index, {}, valid_session
       expect(assigns(:customers)).to eq([customer])
     end
